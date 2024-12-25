@@ -10,15 +10,15 @@ public class Main {
         double kgs = 5;
         double pnds = 12;
         double mls = 10;
-
+        double kms = 100;
         double pounds = convKgsToPounds(kgs);
         double kilos = convPoundsToKgs(pnds);
         double kilometers = convMlsToKms(mls);
+        double miles = convKmsToMls(kms);
 
-
-        System.out.println("Result is " + pounds + " pounds and "
-                + kilos + " kgs.");
-        System.out.println("Result is " + kilometers + " kilometers.");
+                System.out.println("Result is " + pounds + " pounds and "
+                        + kilos + " kgs.");
+        System.out.println("Result is " + kilometers + " kilometers and " + miles + " kilometers.");
     }
 
 
@@ -34,5 +34,7 @@ public class Main {
         return mls * CONV_M;
     }
 
-
+    private static double convKmsToMls(double kms) {
+        return kms / CONV_M;
+    }
 }
