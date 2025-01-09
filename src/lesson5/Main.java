@@ -2,29 +2,29 @@ package lesson5;
 
 public class Main {
     public static void main(String[] args) {
-        // Отримуємо вхідні дані
+        // get output data
         String[] data = getData();
-        // Формуємо об'єкт з вхідних даних
+        //forming an object from input data
         Product product = new Product(data[0],
                 Integer.parseInt(data[1]),
                 Double.parseDouble(data[2]));
-        // Розраховуємо базову вартість товару
+        //to calculate the base cost of the product
         CalcCostBase costBase = new CalcCostBase();
         double baseCost = costBase.calcCost(product);
-        // Розраховуємо вартість товару, з урахуванням доставки
+        //to calculate the cost of the goods, taking into account delivery
         CalcCostDelivery costDelivery = new CalcCostDelivery();
         double deliveryCost = costDelivery.calcCost(product);
-        // Формуємо виведення
+        //constructing the output
         String baseOutput = product + "\nCost is " +
                 Constants.CURRENCY + " " + baseCost + ".";
         String deliveryOutput = product + "\nCost is " +
                 Constants.CURRENCY + " " + deliveryCost + ".";
-        // Виводимо результат
+        //output
         getOutput(baseOutput);
         getOutput(deliveryOutput);
     }
 
-    // Набір вхідних даних
+    //Input data set
     public static String[] getData() {
         return new String[] {"abc", "5", "2.5"};
     }

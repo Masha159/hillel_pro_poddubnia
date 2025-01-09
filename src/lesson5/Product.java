@@ -1,5 +1,5 @@
 package lesson5;
-
+/*information about product*/
 public class Product {
 
     String name;
