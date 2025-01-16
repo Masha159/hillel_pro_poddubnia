@@ -1,5 +1,8 @@
 package lesson7;
 
+/**
+ * finds a mistake in a word and corrects it
+ */
 public class Corrector {
     public String handleData(String[] strs) {
         StringBuilder stringBuilder = new StringBuilder();
