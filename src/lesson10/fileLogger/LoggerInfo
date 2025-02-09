@@ -1,0 +1,7 @@
+FILE: /Users/maria/Library/Mobile Documents/com~apple~CloudDocs/hillel/hillel_pro_poddubniaa/src/lesson10/fileLogger/Logger
+
+LEVEL: DEBUG
+
+MAX-SIZE: 200
+
+FORMAT: [%s][%s]: %s
