@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class DataHandler {
-    // Метод формує виведення імені за певним індексом
+    // The method forms the output of the name at a specific index
     public String formOutput(List<String> list, int index) {
         try {
             String name = list.get(index);
@@ -14,7 +14,7 @@ public class DataHandler {
         }
     }
 
-    // Метод формує виведення нумерованого списку імен
+    // The method forms an output of a numbered list of names
     public String formListOutput(List<String> list) {
         StringBuilder sb = new StringBuilder();
         AtomicInteger count = new AtomicInteger(1);

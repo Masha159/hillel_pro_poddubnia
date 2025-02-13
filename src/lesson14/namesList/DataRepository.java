@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataRepository {
-    // Метод повертає список імен
+    // The method returns a list of names.
     public List<String> getData() {
         List<String> list = new ArrayList<>();
         list.add("Alice");
