@@ -8,10 +8,11 @@ import org.lessons.lesson30.dto.Student;
 
 import java.util.List;
 
-public class StudentDaoImpl implements GenericDao<Student, Long>{
+public class StudentDaoImpl implements GenericDao<Student, Long> {
     static SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml")
             .buildSessionFactory();
     static Session session = sessionFactory.openSession();
+
     @Override
     public void save(Student entity) {
         session.beginTransaction();
@@ -45,11 +46,22 @@ public class StudentDaoImpl implements GenericDao<Student, Long>{
 
     @Override
     public Student update(Student entity) {
-        return null;
+        session.beginTransaction();
+        Student studentMerge = session.merge(entity);
+        session.getTransaction().commit();
+        return studentMerge;
     }
 
     @Override
     public boolean deleteById(Long aLong) {
-        return false;
+        session.beginTransaction();
+        Student student = findById(aLong);
+        if (student != null) {
+            session.delete(student);
+            session.getTransaction().commit();
+            return true;
+        } else {
+            return false;
+        }
     }
 }
