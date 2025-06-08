@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- JDBC connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/student</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">rpassword</property>
+
+        <!-- SQL dialect -->
+<!--        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- Logging -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Schema generation -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.id.new_generator_mappings">false</property>
+        <!-- Mapping your entity class -->
+        <mapping class="org.lessons.lesson30.dto.Student"/>
+        <mapping class="org.lessons.lesson30.dto.Homework"/>
+
+    </session-factory>
+</hibernate-configuration>
