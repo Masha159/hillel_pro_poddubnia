@@ -6,8 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.lessons.lesson35.model.Account;
-import org.lessons.lesson35.service.AccountService;
 import org.lessons.lesson37.model.Order;
 import org.lessons.lesson37.repository.OrderRepository;
 
