@@ -1,14 +1,15 @@
-package org.lessons.lesson41.Service;
+package org.lessons.lesson41.service;
 
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.lessons.lesson41.model.Order;
 import org.lessons.lesson41.repository.OrderRepository;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 
+@Component
 public class OrderService {
     private final OrderRepository orderRepository;
 

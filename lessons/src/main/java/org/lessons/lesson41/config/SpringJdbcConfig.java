@@ -8,14 +8,14 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SpringJdbcConfig {
-    @Bean
-    public DataSource mysqlDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3307/orders");
-        dataSource.setUsername("root");
-        dataSource.setPassword("rpassword");
-
-        return dataSource;
-    }
+//    @Bean
+//    public DataSource mysqlDataSource() {
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost:3307/orders");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("rpassword");
+//
+//        return dataSource;
+//    }
 }

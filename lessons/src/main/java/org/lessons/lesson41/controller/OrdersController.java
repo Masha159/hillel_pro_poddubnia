@@ -1,5 +1,6 @@
 package org.lessons.lesson41.controller;
-import org.lessons.lesson41.Service.OrderService;
+import org.lessons.lesson40.model.Product;
+import org.lessons.lesson41.service.OrderService;
 import org.lessons.lesson41.model.Order;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,11 @@ public class OrdersController {
 
     public ResponseEntity<Order> get(@PathVariable Integer id) throws SQLException {
         return ResponseEntity.ok(orderService.findById(id));
+    }
+
+    @PostMapping
+    public void createOrder(@RequestBody Order order) throws SQLException {
+        orderService.save(order);
     }
 
     @GetMapping

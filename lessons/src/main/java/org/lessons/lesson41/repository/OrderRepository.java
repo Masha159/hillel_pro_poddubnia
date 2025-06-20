@@ -1,7 +1,6 @@
 package org.lessons.lesson41.repository;
 
 import lombok.NoArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.lessons.lesson41.dao.OrderRowMapper;
 import org.lessons.lesson41.model.Order;
 import org.lessons.lesson41.model.Product;
@@ -17,10 +16,8 @@ import java.util.List;
 @Repository
 public class OrderRepository {
 
+    @Autowired
     JdbcTemplate jdbcTemplate;
-    public OrderRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
 
     public Order findById(Integer id) throws SQLException {
         Order order = new Order();
@@ -30,7 +27,7 @@ public class OrderRepository {
 
     public List<Order> getOrders() throws SQLException {
         List<Order> orders = new ArrayList<>();
-        jdbcTemplate.query("SELECT * FROM orders",new OrderRowMapper());
+        jdbcTemplate.query("SELECT * FROM orders", new OrderRowMapper());
         return orders;
     }
 
@@ -38,10 +35,9 @@ public class OrderRepository {
         List<Object> params = new ArrayList<Object>();
         params.add(order.getId());
         params.add(order.getTotalCost());
-        params.add(order.getProducts());
         params.add(order.getCreatedAt());
 
-        jdbcTemplate.update("INSERT INTO orders (id, totalCost, products, createdAt) VALUES (?,?,?,?)", params.toArray());
+        jdbcTemplate.update("INSERT INTO orders (id, total_cost, created_at) VALUES (?,?,?)", params.toArray());
         return order;
     }
 
@@ -55,19 +51,17 @@ public class OrderRepository {
         List<Object> params = new ArrayList<Object>();
         params.add(order.getId());
         params.add(order.getTotalCost());
-        params.add(order.getProducts());
         params.add(order.getCreatedAt());
-        jdbcTemplate.update("UPDATE orders SET, id = ?, totalCost = ?, products = ? WHERE createdAt = ?", params);
+        jdbcTemplate.update("UPDATE orders SET, id = ?, total_cost = ? WHERE created_at = ?", params);
     }
 
     private void insertOrderProducts(Long orderId, List<Product> products) {
         for (Product p : products) {
-            jdbcTemplate.update("INSERT INTO orders (id, productId) VALUES (?, ?)",
+            jdbcTemplate.update("INSERT INTO order_products (order_id, product_id) VALUES (?, ?)",
                     orderId, p.getProductId());
         }
     }
-
-
-
-
 }
+
+
+
